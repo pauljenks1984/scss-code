@@ -1,0 +1,25 @@
+/* ==========================================================================
+   COMPONENTS/ #TEXTAREA
+   ========================================================================== */
+
+   .hse-textarea {
+    @include hse-font(19);
+  
+    -webkit-appearance: none;
+    border: $hse-border-width-form-element solid $hse-form-border-color;
+    border-radius: 0;
+    box-sizing: border-box;
+    display: block;
+    min-height: 40px;
+    padding: hse-spacing(1);
+    resize: vertical;
+    width: 100%;
+  
+    &:focus {
+      @include hse-focused-input;
+    }
+  }
+  
+  .hse-textarea--error {
+    border: $hse-border-width-form-element-error solid $hse-error-color;
+  }

@@ -1,0 +1,53 @@
+/* ==========================================================================
+   COMPONENTS / #IMAGES
+   ========================================================================== */
+
+/**
+ * 1. Overrides default browser margin values.
+ * 2. Makes the image width two thirds of its container for desktop.
+ * 3. Avoid image printing full width of a page.
+ * 4. Removes top margin from subsequent hse-image.
+ */
+
+ .hse-image {
+  background-color: $color_hse-grey-4;
+  border-bottom: 1px solid $color_hse-grey-3;
+
+  margin-left: 0; /* [1] */
+  margin-right: 0; /* [1] */
+
+  @include hse-responsive-margin(6, "bottom");
+  @include hse-responsive-margin(6, "top");
+
+  @include mq($from: desktop) {
+    width: 66.66667%; /* [2] */
+  }
+
+  @include mq($media-type: print) {
+    width: 50%; /* [3] */
+  }
+
+  & + .hse-image {
+    @include hse-responsive-margin(0, "top"); /* [4] */
+  }
+  &--full {
+  width: 100%;
+  }
+}
+
+.hse-image__img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.hse-image__caption {
+  @include hse-typography-responsive(16);
+
+  padding: hse-spacing(3);
+}
+
+.hse-image-border {
+  border: 1px solid $color_hse-grey-4;
+  border-bottom: 0;
+}
